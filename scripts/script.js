@@ -1,42 +1,60 @@
-let listProducts = [
+let listUsers = [
     {
-        name: "Hamburguer",
-        description: "A delicious hamburguer",
-        price: 22.00,
-        photoURL: "https://videocdn.cdnpk.net/videos/6106416e-a9f7-5305-8067-fe819182f8b7/horizontal/thumbnails/small.jpg?item_id=5036298"
+        name: "admin",
+        email: "admin@admin.com",
+        password: 123456,
+    },
+    {
+        name: "Kaue Sergio",
+        email: "kaue@email.com",
+        password: 123456,
+    },
+    {
+        name: "Joao",
+        email: "joao@email.com",
+        password: 123456,
+    },
+    {
+        name: "Algordan",
+        email: "algordan@email.com",
+        password: 123456,
+    },
+    {
+        name: "Apployaldo",
+        email: "apployaldo@email.com",
+        password: 123456,
     }
 ]
 
-const prodList = document.getElementById("prod-list");
-
-const productName = document.getElementById("name");
-const productDescription = document.getElementById("description");
-const productPrice = document.getElementById("price");
-const productPhotoURL = document.getElementById("photo-url")
-const botao = document.getElementById("btn")
+const botao = document.getElementById("btn");
+const userMail = document.getElementById("mail");
+const userPass = document.getElementById("pass");
+let RealyPass = "";
+const contador = 0;
 
 botao.addEventListener("click", (e) => {
     e.preventDefault();
-    listProducts.push(
-        {
-            name: productName.value,
-            description: productDescription.value,
-            price: productPrice.value,
-            photoURL: productPhotoURL.value
-        });
 
-        prodList.innerHTML = "";
-        console.clear();
-
-    for (let i = 0; i < listProducts.length; i++) {
-        const li = document.createElement("li");
-        console.log(listProducts[i]);
-        li.innerText = ("<Name: " + listProducts[i].name + "\nDescription: " + listProducts[i].description + "\nPrice: " + listProducts[i].price )
-        prodList.appendChild(li);
-    };
-
-    productName.value = "";
-    productDescription.value = "";
-    productPrice.value = "";
-    productPhotoURL.value = "";
+    for (let i = 0; i <= listUsers.length; i++) {
+        contador + 1;
+        console.log("iniciou");
+        if (listUsers[i].email == userMail.value) {
+            RealyPass = listUsers[i].password
+            if (userPass.value == null || userPass.value == "") {
+                alert("Preencha todos os campos")
+                return;
+            }
+            if (userPass.value != RealyPass) {
+                alert("Dados invalidos")
+                return;
+            }
+            alert("Olá " + listUsers[i].name + " seja bem vindo!!!")
+        }
+        else if (contador + 1 == listUsers.length && userMail.value != listUsers[i].email) {
+            alert("user not found")
+            break;
+        }
+    }
+    
+    userPass.value = "";
 })
