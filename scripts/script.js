@@ -27,34 +27,44 @@ let listUsers = [
 ]
 
 const botao = document.getElementById("btn");
+const userName = document.getElementById("name");
 const userMail = document.getElementById("mail");
 const userPass = document.getElementById("pass");
 let RealyPass = "";
 const contador = 0;
+const cadastrado = false;
 
 botao.addEventListener("click", (e) => {
     e.preventDefault();
 
     for (let i = 0; i <= listUsers.length; i++) {
         contador + 1;
-        console.log("iniciou");
         if (listUsers[i].email == userMail.value) {
-            RealyPass = listUsers[i].password
-            if (userPass.value == null || userPass.value == "") {
-                alert("Preencha todos os campos")
-                return;
+            {
+                alert("Email já cadastrado");
+                cadastrado = false;
+                break;
             }
-            if (userPass.value != RealyPass) {
-                alert("Dados invalidos")
-                return;
+        }
+
+        else if (userPass.value == null || userPass.value == "" || userName.value == null || userPass.value == "" || userMail.value == null || userMail.value == "") {
+            alert("Preencha todos os campos")
+            cadastrado = false
+            return;
+        }
+
+        listUsers.push[
+            {
+                name: userName.value,
+                email: userMail.value,
+                password: userPass.value
             }
-            alert("Olá " + listUsers[i].name + " seja bem vindo!!!")
+        ]
+        cadastrado = true
+
+        if (cadastrado == true) {
+            alert("Olá " + userName.value + " seja bem vindo!!!")
         }
-        else if (contador + 1 == listUsers.length && userMail.value != listUsers[i].email) {
-            alert("user not found")
-            break;
-        }
+        console.log(listUsers)
     }
-    
-    userPass.value = "";
 })
