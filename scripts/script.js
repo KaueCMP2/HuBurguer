@@ -27,7 +27,6 @@ let listUsers = [
 ]
 
 const botao = document.getElementById("btn");
-const userName = document.getElementById("name");
 const userMail = document.getElementById("mail");
 const userPass = document.getElementById("pass");
 let RealyPass = "";
@@ -36,35 +35,20 @@ const cadastrado = false;
 
 botao.addEventListener("click", (e) => {
     e.preventDefault();
-
-    for (let i = 0; i <= listUsers.length; i++) {
-        contador + 1;
-        if (listUsers[i].email == userMail.value) {
-            {
-                alert("Email já cadastrado");
-                cadastrado = false;
-                break;
-            }
-        }
-
-        else if (userPass.value == null || userPass.value == "" || userName.value == null || userPass.value == "" || userMail.value == null || userMail.value == "") {
-            alert("Preencha todos os campos")
-            cadastrado = false
-            return;
-        }
-
-        listUsers.push[
-            {
-                name: userName.value,
-                email: userMail.value,
-                password: userPass.value
-            }
-        ]
-        cadastrado = true
-
-        if (cadastrado == true) {
-            alert("Olá " + userName.value + " seja bem vindo!!!")
-        }
-        console.log(listUsers)
+    let userIndex = listUsers.findIndex(user => user.email == userMail.value)
+    console.log(userMail.value)
+    console.log(userIndex)
+    if (!userMail.value || !userPass.value) {
+        return alert("Preencha todos os campos");
     }
+
+    if (userIndex < 0) {
+        return alert("Usuario não encontrado!!!");
+    }
+
+    if (userPass.value != listUsers[userIndex].password) {
+        return alert("Dados invalidos!!!");
+    }
+
+    alert("login efetuado")
 })
