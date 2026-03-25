@@ -22,32 +22,27 @@ let listProducts = [
     }
 ]
 
-const prodList = document.getElementById("prod-list");
+listProducts.forEach(prod => {
+    const prodList = document.getElementById("prod-list");
+    const orderList = document.getElementById("order-list")
+    const btnEnd = document.getElementById("btn")
 
-const botao = document.getElementById("btn")
+    const liProd = document.createElement("li");
+    const liOrd = document.createElement("li");
+    const btnBuy = document.createElement("button");
 
-botao.addEventListener("click", (e) => {
-    e.preventDefault();
-    listProducts.push(
-        {
-            name: productName.value,
-            description: productDescription.value,
-            price: productPrice.value,
-            photoURL: productPhotoURL.value
-        });
+    liProd.innerText = ("Product name: \n" + prod.name + "\n$: " + prod.price);
+    btnBuy.innerHTML = "<button id=\"btnBuy\">btnBuy</button>";
+    btnBuy.innerText = ("Buy");
 
-    prodList.innerHTML = "";
-    console.clear();
+    liProd.appendChild(btnBuy);
+    prodList.appendChild(liProd);
 
-    for (let i = 0; i < listProducts.length; i++) {
-        const li = document.createElement("li");
-        console.log(listProducts[i]);
-        li.innerText = ("<Name: " + listProducts[i].name + "\nDescription: " + listProducts[i].description + "\nPrice: " + listProducts[i].price)
-        prodList.appendChild(li);
-    };
+    btnBuy.addEventListener("click", () => {
+        liOrd.innerText = ("Product name:   " + prod.name + "  $: " + prod.price)
+        orderList.appendChild(liOrd);
+        orderList.appendChild(btnEnd);
+    })
 
-    productName.value = "";
-    productDescription.value = "";
-    productPrice.value = "";
-    productPhotoURL.value = "";
-})
+});
+
