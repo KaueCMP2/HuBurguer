@@ -15,34 +15,65 @@ let listProducts = [
     },
     {
         name: "peixe",
-        id: 3,
         description: "A delicious peixe",
         price: 20.00,
         photoURL: "https://videocdn.cdnpk.net/videos/6106416e-a9f7-5305-8067-fe819182f8b7/horizontal/thumbnails/small.jpg?item_id=5036298"
     }
 ]
 
-listProducts.forEach(prod => {
-    const prodList = document.getElementById("prod-list");
-    const orderList = document.getElementById("order-list")
-    const btnEnd = document.getElementById("btn")
+const prodList = document.getElementById("prod-list");
+const orderList = document.getElementById("order-list")
+const btnEnd = document.createElement("button")
 
+let listOrdersAdd = [
+    {
+        nameProd: "",
+        quant: 0,
+        price: 0,
+    }
+];
+
+listProducts.forEach(prod => {
     const liProd = document.createElement("li");
     const liOrd = document.createElement("li");
     const btnBuy = document.createElement("button");
 
     liProd.innerText = ("Product name: \n" + prod.name + "\n$: " + prod.price);
-    btnBuy.innerHTML = "<button id=\"btnBuy\">btnBuy</button>";
-    btnBuy.innerText = ("Buy");
 
     liProd.appendChild(btnBuy);
     prodList.appendChild(liProd);
 
-    btnBuy.addEventListener("click", () => {
-        liOrd.innerText = ("Product name:   " + prod.name + "  $: " + prod.price)
-        orderList.appendChild(liOrd);
-        orderList.appendChild(btnEnd);
-    })
+    btnBuy.innerHTML = "<button id=\"btnBuy\">Buy</button>";
 
+    function AddOrderInListOrders(prodName, price) {
+        let prodIndex = listOrdersAdd.findIndex(prodList => prodList.nameProd == prodName);
+        let quantityProd = 1;
+
+        if (prodIndex < 0) {
+            listOrdersAdd.push({
+                nameProd: prodName,
+                quant: 1,
+                price: price,
+            })
+
+            liOrd.innerText = ("Product name:   " + prod.name + "  $: " + prod.price + "    Quantity:   " + quantityProd)
+            orderList.appendChild(liOrd);
+            orderList.appendChild(btnEnd);
+
+            prodIndex = listOrdersAdd.length - 1
+        }
+        quantityProd = listOrdersAdd[prodIndex].quant;
+        listOrdersAdd[prodIndex].quant++
+
+        liOrd.innerText = ("Product name:   " + prod.name + "  $: " + prod.price + "    Quantity:   " + quantityProd)
+    }
+
+
+    btnBuy.addEventListener("click", () => {
+        AddOrderInListOrders(prod.name, prod.price)
+    })
 });
+
+
+
 
