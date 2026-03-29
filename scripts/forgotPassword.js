@@ -26,40 +26,27 @@ let listUsers = [
     }
 ]
 
-const botao = document.getElementById("btn");
-const userName = document.getElementById("name");
 const userMail = document.getElementById("mail");
-const userPass = document.getElementById("pass");
+const btn = document.getElementById("btn");
 
 let RealyPass = "";
 const contador = 0;
 
-botao.addEventListener("click", (e) => {
+btn.addEventListener("click", (e) => {
     e.preventDefault();
 
     let emailCadastrado = listUsers.some(um => um.email == userMail.value);
-    if (emailCadastrado) {
-        alert("Email já cadastrado");
+    if (!emailCadastrado) {
+        alert("Email não encontrado");
         return
     }
 
-    else if (userPass.value == null || userPass.value == "" || userName.value == null || userPass.value == "" || userMail.value == null || userMail.value == "") {
+    else if (userMail.value == null || userMail.value == "") {
         alert("Preencha todos os campos");
         return;
     }
+    const userPass = Math.floor(Math.random() * (999999 - 100000 + 1) + 100000);
+    alert(userPass);
 
-    listUsers.push(
-        {
-            name: userName.value,
-            email: userMail.value,
-            password: userPass.value
-        }
-    );
-    alert("Olá " + userName.value + " seja bem vindo!!!");
-    cadastrado = false;
-    console.log(listUsers)
-    
-    userName.value = "";
     userMail.value = "";
-    userPass.value = "";
 });
