@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="/scripts/script.js"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Home admin | HuBurguer</title>
+</head>
+
+<body>
+    <header>
+        <h1>List Products</h1>
+    </header>
+
+    <section id="container-form-add-product">
+        <form>
+            <h2>Add product</h2>
+            <div class="conteiner-form-inputs">
+                <div class="box">
+                    <span>Product name</span>
+                    <input type="text" id="name">
+                </div>
+
+                <div class="box">
+                    <span>Desciption</span>
+                    <input type="text" id="description">
+                </div>
+
+                <div class="box">
+                    <span>Price</span>
+                    <input type="number" id="price">
+                </div>
+
+                <div class="box">
+                    <span>Photo Url</span>
+                    <input type="url" id="photo-url">
+                </div>
+            </div>
+
+            <div class="button-conteiner">
+                <button type="submit" id="btn">Add Product</button>
+            </div>
+
+            <div class="return-conteiner">
+                <a href="" id="return-form-link">Return</a>
+            </div>
+        </form>
+    </section>
+
+    <section id="list-products">
+        <ul id="prod-list"></ul>
+    </section>
+
+    <div class="container-btn-add">
+        <a href="" id="link-add-products">New product</a>
+    </div>
+</body>
+
+</html>
