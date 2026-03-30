@@ -2,26 +2,31 @@ let listUsers = [
     {
         name: "admin",
         email: "admin@admin.com",
+        cargo: "admin",
         password: 123456,
     },
     {
         name: "Kaue Sergio",
         email: "kaue@email.com",
+        cargo: "user",
         password: 123456,
     },
     {
         name: "Joao",
         email: "joao@email.com",
+        cargo: "user",
         password: 123456,
     },
     {
         name: "Algordan",
         email: "algordan@email.com",
+        cargo: "user",
         password: 123456,
     },
     {
         name: "Apployaldo",
         email: "apployaldo@email.com",
+        cargo: "user",
         password: 123456,
     }
 ]
@@ -51,4 +56,7 @@ botao.addEventListener("click", (e) => {
     }
 
     alert("login efetuado")
+    if (listUsers[userIndex].cargo == "admin") {
+        window.open('/pages/adminHome.html', '_self');
+    }
 })
