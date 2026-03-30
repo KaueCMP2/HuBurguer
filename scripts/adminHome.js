@@ -83,6 +83,7 @@ btnOpenModal.addEventListener("click", (e) => {
     modal.showModal();
 })
 
-btnCloseModal.addEventListener("click", () => {
+btnCloseModal.addEventListener("click", (e) => {
+    e.preventDefault();
     modal.close();
 })

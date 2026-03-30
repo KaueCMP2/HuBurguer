@@ -62,3 +62,8 @@ botao.addEventListener("click", (e) => {
     userMail.value = "";
     userPass.value = "";
 });
+
+const btnOpenLogin = document.getElementById("btn-open-login");
+btnOpenLogin.addEventListener("click", () => {
+    window.open('/pages/login.html', '_self');
+})

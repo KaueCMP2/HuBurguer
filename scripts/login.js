@@ -57,4 +57,10 @@ botao.addEventListener("click", (e) => {
     if (listUsers[userIndex].cargo == "admin") {
         window.open('/pages/adminHome.html', '_self');
     }
-})
+});
+
+const btnOpenSign = document.getElementById("btn-open-sign")
+btnOpenSign.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.open('/pages/sign.html', '_self');
+});
