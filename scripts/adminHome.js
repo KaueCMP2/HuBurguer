@@ -56,6 +56,24 @@ function showProducts() {
     };
 }
 
+btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    prodList.innerHTML = "";
+    listProducts.push(
+        {
+            name: productName.value,
+            description: productDescription.value,
+            price: productPrice.value,
+            photoURL: productPhotoURL.value
+        });
+
+        productName.value = "";
+        productDescription.value = "";
+        productPrice.value = "";
+        productPhotoURL.value = "";
+        
+    showProducts();
+});
 
 const modal = document.getElementById('add-prod-modal');
 const btnOpenModal = document.getElementById('link-add-products');
