@@ -23,45 +23,6 @@ const btn = document.getElementById("btn")
 
 showProducts();
 
-
-const form = document.getElementById("container-form-add-product");
-const returnLink = document.getElementById("return-form-link");
-console.log(returnLink)
-returnLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    form.style.display = "none";
-    btn.addEventListener("click", (e) => {
-        e.preventDefault();
-    })
-})
-
-const addProductsLink = document.getElementById("link-add-products");
-addProductsLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    form.style.display = "flex";
-    btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        listProducts.push(
-            {
-                name: productName.value,
-                description: productDescription.value,
-                price: productPrice.value,
-                photoURL: productPhotoURL.value
-            });
-
-        prodList.innerHTML = "";
-        console.clear();
-
-        showProducts();
-
-        productName.value = "";
-        productDescription.value = "";
-        productPrice.value = "";
-        productPhotoURL.value = "";
-    })
-})
-
-
 function showProducts() {
     for (let i = 0; i < listProducts.length; i++) {
         const li = document.createElement("li");
@@ -96,5 +57,17 @@ function showProducts() {
 }
 
 
+const modal = document.getElementById('add-prod-modal');
+const btnOpenModal = document.getElementById('link-add-products');
+const btnCloseModal = document.getElementById('return-form-link');
 
+btnOpenModal.addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log("btn abrir clicado");
+    modal.showModal();
+})
 
+btnCloseModal.addEventListener("click", () => {
+    console.log("btn fechar clicado")
+    modal.close();
+})

@@ -31,8 +31,12 @@ h1 {
     font-size: 3rem;
 }
 
-#container-form-add-product {
+#add-prod-modal:not([open]) {
     display: none;
+}
+
+#add-prod-modal:open {
+    display: flex;
     align-items: center;
     justify-content: center;
 
@@ -45,9 +49,11 @@ h1 {
     background-color: rgba(0, 0, 0, 0.74);
 }
 
+
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     background-color: rgb(202, 202, 202);
 
@@ -60,24 +66,29 @@ form {
     height: 50vh;
 }
 
+.tittle {
+    width: 100%;
+    margin-bottom: 5%;
+}
+
 h2 {
     font-size: 3rem;
-    margin-bottom: 5%;
+
+    margin-left: 4%;
 }
 
 .conteiner-form-inputs {
     display: flex;
     flex-wrap: wrap;
 
+    justify-content: space-around;
+    gap: 50px;
+
     width: 100%;
 }
 
 .box {
-    display: flex;
-    flex-direction: column;
-
     width: 40%;
-    margin-right: 10%;
 }
 
 span {
@@ -89,7 +100,7 @@ span {
 }
 
 input {
-    width: 80%;
+    width: 100%;
     height: 20px;
     padding: 5px;
     border-radius: 5px;
@@ -105,15 +116,18 @@ input:hover {
 
 .button-conteiner {
     display: flex;
+    flex-direction: column;
 
-    width: 100%;
+    width: 95%;
     height: auto;
+    gap: 10px;
 
+    margin-top: 5%;
     align-items: center;
     justify-content: center;
 }
 
-#btn{
+#btn {
     cursor: pointer;
 
     width: 300px;
@@ -130,6 +144,10 @@ input:hover {
     font-size: 1rem;
     font-weight: 600;
     box-shadow: rgba(100, 26, 26, 0.453) 2px 2px 2px;
+}
+
+#return-form-link {
+    margin-right: 0;
 }
 
 #btn:hover {
@@ -195,7 +213,6 @@ a {
     font-size: 1.2rem;
 
     color: rgb(0, 0, 0);
-
     margin-right: 6.5%;
 }
 
