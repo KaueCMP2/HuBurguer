@@ -64,3 +64,9 @@ btnOpenSign.addEventListener("click", (e) => {
     e.preventDefault();
     window.open('/pages/sign.html', '_self');
 });
+
+const btnForgot = document.getElementById("forgot-password");
+btnForgot.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.open('/pages/forgotPassword.html', '_self');
+})
