@@ -53,10 +53,11 @@ botao.addEventListener("click", (e) => {
         return alert("Dados invalidos!!!");
     }
 
-    alert("login efetuado")
+    alert("Olá " + listUsers[userIndex].name + " Seja bem vindo");
     if (listUsers[userIndex].cargo == "admin") {
         window.open('/pages/adminHome.html', '_self');
     }
+    window.open('/pages/home.html', '_self');
 });
 
 const btnOpenSign = document.getElementById("btn-open-sign")
