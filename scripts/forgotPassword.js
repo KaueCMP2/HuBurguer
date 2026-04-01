@@ -49,4 +49,12 @@ btn.addEventListener("click", (e) => {
     alert(userPass);
 
     userMail.value = "";
+    window.open('/pages/resetPassword.html', '_self');
 });
+
+const btnReturnLogin = document.getElementById("btn-return-login")
+
+btnReturnLogin.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.open('/pages/login.html', '_self');
+})

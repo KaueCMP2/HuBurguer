@@ -51,3 +51,10 @@ btn.addEventListener("click", (e) => {
 
     userMail.value = "";
 });
+
+const btnReturnForgot = document.getElementById("btn-return-forgot");
+
+btnReturnForgot.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.open('/pages/forgotPassword.html', '_self');
+})
