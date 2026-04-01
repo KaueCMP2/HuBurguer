@@ -111,6 +111,21 @@ input:hover {
     margin-top: 10px;
 }
 
+a {
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 0.8rem;
+
+    background-color: transparent;
+    border: none;
+
+    color: rgb(0, 0, 0);
+
+    margin-top: 10px;
+}
+
+
 a:hover {
     text-decoration: none;
 }
