@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="/scripts/adminHome.js"></script>
+    <link rel="stylesheet" href="/styles/adminHome.css">
+    <title>Home admin | HuBurguer</title>
+</head>
+
+<body>
+    <header>
+        <h1>List Products</h1>
+    </header>
+
+    <dialog id="add-prod-modal">
+        <form>
+            <div class="tittle">
+                <h2>Add product</h2>
+            </div>
+            <div class="conteiner-form-inputs">
+                <div class="box">
+                    <span>Product name</span>
+                    <input type="text" id="name">
+                </div>
+
+                <div class="box">
+                    <span>Desciption</span>
+                    <input type="text" id="description">
+                </div>
+
+                <div class="box">
+                    <span>Price</span>
+                    <input type="number" id="price">
+                </div>
+
+                <div class="box">
+                    <span>Photo Url</span>
+                    <input type="url" id="photo-url">
+                </div>
+            </div>
+
+            <div class="button-conteiner">
+                <button type="submit" id="btn">Add Product</button>
+
+                <button type="button" id="return-form-link">Return</button>
+            </div>
+        </form>
+    </dialog>
+
+    <section id="list-products">
+        <ul id="prod-list"></ul>
+    </section>
+
+    <div class="container-btn-add">
+        <button type="button" id="open-add-products">New product</button>
+    </div>
+</body>
+
+</html>
